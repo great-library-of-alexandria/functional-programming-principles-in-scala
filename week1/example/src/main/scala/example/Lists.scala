@@ -25,6 +25,33 @@ object Lists {
   def sum(xs: List[Int]): Int = xs.foldLeft(0)(_ + _)
 
   /**
+   * Recursive solution.
+   *
+   * @param xs A list of natural numbers
+   * @return The sum of all elements in `xs`
+   */
+  def sum2(xs: List[Int]): Int = xs match {
+    case Nil            => 0
+    case ::(head, tail) => head + sum2(tail)
+  }
+
+  /**
+   * Tail recursive solution.
+   *
+   * @param xs A list of natural numbers
+   * @return The sum of all elements in `xs`
+   */
+  def sum3(xs: List[Int]): Int = {
+    def go(acc: Int, xs: List[Int]): Int = {
+      xs match {
+        case Nil            => acc
+        case ::(head, tail) => go(acc + head, tail)
+      }
+    }
+    go(0, xs)
+  }
+
+  /**
    * This method returns the largest element in a list of integers. If the
    * list `xs` is empty it throws a `java.util.NoSuchElementException`.
    *
@@ -38,4 +65,15 @@ object Lists {
    * @throws java.util.NoSuchElementException if `xs` is an empty list
    */
   def max(xs: List[Int]): Int = xs.reduceLeft((x, y) => if (x > y) x else y)
+
+  def max2(xs: List[Int]): Int = {
+    if (xs.isEmpty) throw new NoSuchElementException
+    def go(acc: Int, xs: List[Int]): Int = {
+      xs match {
+        case Nil            => acc
+        case ::(head, tail) => if (head > acc) go(head, tail) else go(acc, tail)
+      }
+    }
+    go(0, xs)
+  }
 }
