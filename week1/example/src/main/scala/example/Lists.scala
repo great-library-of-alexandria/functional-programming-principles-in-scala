@@ -42,6 +42,7 @@ object Lists {
    * @return The sum of all elements in `xs`
    */
   def sum3(xs: List[Int]): Int = {
+    @scala.annotation.tailrec
     def go(acc: Int, xs: List[Int]): Int = {
       xs match {
         case Nil            => acc
@@ -66,8 +67,16 @@ object Lists {
    */
   def max(xs: List[Int]): Int = xs.reduceLeft((x, y) => if (x > y) x else y)
 
+  /**
+   * Tail recursive solution.
+   *
+   * @param xs A list of natural numbers
+   * @return The largest element in `xs`
+   * @throws java.util.NoSuchElementException if `xs` is an empty list
+   */
   def max2(xs: List[Int]): Int = {
     if (xs.isEmpty) throw new NoSuchElementException
+    @scala.annotation.tailrec
     def go(acc: Int, xs: List[Int]): Int = {
       xs match {
         case Nil            => acc
