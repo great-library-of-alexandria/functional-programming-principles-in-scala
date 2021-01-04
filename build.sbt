@@ -9,3 +9,6 @@ lazy val week1 = project.in(file("week1"))
 lazy val example = project.in(file("week1/example"))
 
 lazy val recfun = project.in(file("week1/recfun"))
+
+lazy val week2 = project.in(file("week2"))
+  .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)
