@@ -15,3 +15,6 @@ lazy val week2 = project.in(file("week2"))
 
 lazy val week3 = project.in(file("week3"))
   .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)
+
+lazy val week4 = project.in(file("week4"))
+  .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)
