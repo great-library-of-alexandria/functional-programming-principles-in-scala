@@ -1,23 +1,29 @@
 ThisBuild / scalaVersion := "2.13.4"
 
 lazy val progfun = project.in(file("."))
+  .aggregate(
+    example,
+    recfun,
+    funsets,
+    objsets,
+    patmat,
+    forcomp
+  )
 
-lazy val week1 = project.in(file("week1"))
-  .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)
-  .aggregate(example, recfun)
-
-lazy val example = project.in(file("week1/example"))
-
-lazy val recfun = project.in(file("week1/recfun"))
-
-lazy val week2 = project.in(file("week2"))
-  .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)
-
-lazy val week3 = project.in(file("week3"))
+lazy val example = project.in(file("example"))
   .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)
 
-lazy val week4 = project.in(file("week4"))
+lazy val recfun = project.in(file("recfun"))
   .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)
 
-lazy val week6 = project.in(file("week6"))
+lazy val funsets = project.in(file("funsets"))
+  .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)
+
+lazy val objsets = project.in(file("objsets"))
+  .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)
+
+lazy val patmat = project.in(file("patmat"))
+  .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)
+
+lazy val forcomp = project.in(file("forcomp"))
   .settings(libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test)

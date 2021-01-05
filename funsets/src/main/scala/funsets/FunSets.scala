@@ -8,7 +8,7 @@ trait FunSets {
    * We represent a set by its characteristic function, i.e.
    * its `contains` predicate.
    */
-  override type FunSet = Int => Boolean
+  type FunSet = Int => Boolean
 
   /**
    * Indicates whether a set contains a given element.
